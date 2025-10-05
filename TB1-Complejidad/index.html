@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FinanZen</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+  <!-- Iconos Lucide -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- Chart.js para gráficos -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <!-- jsPDF para exportar PDF -->
+  <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
+</head>
+<body>
+  <div id="app" class="app">
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+      <div class="brand">
+        <span class="logo">💰</span>
+        <span class="brand-text">FinanZen</span>
+      </div>
+      <nav class="nav">
+        <button class="nav-item" data-route="dashboard">
+          <i data-lucide="layout-dashboard"></i>
+          <span>Dashboard</span>
+        </button>
+        <button class="nav-item" data-route="transacciones">
+          <i data-lucide="list"></i>
+          <span>Transacciones</span>
+        </button>
+        <button class="nav-item" data-route="metas">
+          <i data-lucide="target"></i>
+          <span>Metas</span>
+        </button>
+        <button class="nav-item" data-route="analisis">
+          <i data-lucide="graph"></i>
+          <span>Análisis</span>
+        </button>
+        <button class="nav-item" data-route="reportes">
+          <i data-lucide="file-chart"></i>
+          <span>Reportes</span>
+        </button>
+        <div class="spacer"></div>
+        <button class="nav-item" id="logoutBtn">
+          <i data-lucide="log-out"></i>
+          <span>Cerrar sesión</span>
+        </button>
+      </nav>
+    </aside>
+
+    <!-- Contenido principal -->
+    <div class="main">
+      <header class="header">
+        <button id="menuToggle" class="menu-toggle" aria-label="Abrir menú">
+          <i data-lucide="menu"></i>
+        </button>
+        <div class="greeting">
+          <h1 id="greetingText">Hola</h1>
+        </div>
+      </header>
+
+      <main id="viewContainer" class="view-container">
+        <!-- Vistas renderizadas dinámicamente por app.js -->
+      </main>
+    </div>
+  </div>
+
+  <!-- Vista de Login a pantalla completa -->
+  <div id="authOverlay" class="auth-overlay">
+    <div class="auth-card card">
+      <div class="brand auth-brand">
+        <span class="logo">💰</span>
+        <span class="brand-text">FinanZen</span>
+      </div>
+      <h2 class="auth-title">Empieza a tomar el control de tus finanzas hoy.</h2>
+      <p class="auth-subtitle">Para jóvenes universitarios del Perú</p>
+
+      <form id="authForm" class="auth-form" novalidate>
+        <div class="form-group">
+          <label for="email">Correo</label>
+          <input id="email" type="text" placeholder="yo@123" value="yo@123" required />
+        </div>
+        <div class="form-group">
+          <label for="password">Contraseña</label>
+          <input id="password" type="password" placeholder="123" value="123" required />
+        </div>
+        <div class="auth-actions">
+          <button type="submit" class="btn btn-primary">Iniciar sesión</button>
+          <button type="button" id="signupBtn" class="btn btn-outline">Crear cuenta</button>
+        </div>
+      </form>
+
+      <div class="auth-illustration" aria-hidden="true">
+        <svg viewBox="0 0 240 120" preserveAspectRatio="xMidYMid meet">
+          <defs>
+            <linearGradient id="grad" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#39B54A" />
+              <stop offset="100%" stop-color="#004C6D" />
+            </linearGradient>
+          </defs>
+          <g fill="url(#grad)" opacity="0.15">
+            <circle cx="40" cy="60" r="30" />
+            <rect x="80" y="30" width="40" height="60" rx="8" />
+            <path d="M150 90 L190 30 L230 90 Z" />
+          </g>
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
+
+
